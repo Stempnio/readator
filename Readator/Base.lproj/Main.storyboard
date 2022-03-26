@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,7 +51,7 @@
         <!--Calculate reading time-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="revision1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Readator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,12 +151,52 @@
         <!--Test your reading speed-->
         <scene sceneID="fO0-9n-kVA">
             <objects>
-                <viewController id="Xse-GF-V45" customClass="SpeedTestViewController" customModule="revision1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Xse-GF-V45" customClass="SpeedTestViewController" customModule="Readator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pW6-JO-j2M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1ve-qG-st5">
+                                <rect key="frame" x="30" y="108" width="354" height="364"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="vLk-It-K4d">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEs-Tf-7yi">
+                                                <rect key="frame" x="0.0" y="0.0" width="56" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Start"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSg-IE-V8Y" userLabel="ElapsedTime">
+                                                <rect key="frame" x="174" y="0.0" width="7.5" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZl-we-4Gz">
+                                                <rect key="frame" x="299.5" y="0.0" width="54.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Stop"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZh-KF-egy">
+                                        <rect key="frame" x="0.0" y="39" width="354" height="325"/>
+                                        <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit et felis egestas fringilla a at mauris. Nunc sodales dui quis convallis dictum. Aenean non mi sem. Sed scelerisque lacus nisi, id placerat tortor varius a. Phasellus convallis turpis ut massa efficitur iaculis. Aenean vel est in nisi feugiat fermentum. In hac habitasse platea dictumst. Praesent consectetur quam a orci condimentum, vitae mollis dui porta. Etiam rutrum, nunc a congue blandit, nulla diam faucibus sem, nec ullamcorper massa velit et velit. Pellentesque posuere finibus justo, ac feugiat risus egestas eget. Duis bibendum aliquam dolor, at posuere ex accumsan in. Nullam ultricies sagittis urna in semper.</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="kDq-oW-MAu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1ve-qG-st5" firstAttribute="leading" secondItem="kDq-oW-MAu" secondAttribute="leading" constant="30" id="LbF-DV-JzJ"/>
+                            <constraint firstItem="1ve-qG-st5" firstAttribute="top" secondItem="kDq-oW-MAu" secondAttribute="top" constant="20" id="PiR-Z3-y8c"/>
+                            <constraint firstItem="kDq-oW-MAu" firstAttribute="trailing" secondItem="1ve-qG-st5" secondAttribute="trailing" constant="30" id="wVz-L8-MQA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Test your reading speed" id="69u-IL-bVy"/>
                 </viewController>
