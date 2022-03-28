@@ -27,6 +27,7 @@ class SpeedTestViewController: UIViewController {
         start = Date()
         startButton.isEnabled = false
         endButton.isEnabled = true
+        elapsedTimeLabel.text = "Click stop to finish"
     }
     
     @IBAction func stopMeasuringTime(_ sender: UIButton) {
@@ -44,6 +45,10 @@ class SpeedTestViewController: UIViewController {
     
     func calculateReadingSpeed(seconds: Int) -> Int {
         let minutes = Double(seconds)/60
+        
+        guard minutes > 0.001 else {
+            return 0
+        }
         
         let numberOfWords = textView.text?.components(separatedBy: .whitespacesAndNewlines).count
         
