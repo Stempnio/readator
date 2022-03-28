@@ -9,54 +9,46 @@ import UIKit
 
 class SpeedTestViewController: UIViewController {
 
-//    var topView: UIView!
-//    var topViewLabel: UILabel!
-//
-//    override func loadView() {
-//        view = UIView()
-//        view.backgroundColor = .white
-//
-////        topView = UIView()
-////
-////        topView.backgroundColor = .blue
-//    setupNavBar(topViewLabel: &topViewLabel)
-//
-////        topViewLabel = UILabel()
-////
-////        topViewLabel.text = "Readator"
-////        topViewLabel.translatesAutoresizingMaskIntoConstraints = false
-////        topViewLabel.textAlignment = .center
-////
-////
-////        view.addSubview(topViewLabel)
-////
-//////        view.addSubview(topView)
-////
-////        NSLayoutConstraint.activate([
-////            topViewLabel.topAnchor.constraint(equalTo:
-////                                            view.layoutMarginsGuide.topAnchor),
-////            topViewLabel.centerXAnchor.constraint(equalTo:
-////                                            view.layoutMarginsGuide.centerXAnchor)
-////
-////        ])
-//    }
+    var start = Date()
+    var end = Date()
+    var elapsedTime: Int {
+        let secondsStart = Calendar.current.component(.second, from:start)
+        let secondsEnd = Calendar.current.component(.second, from: end)
+        return secondsEnd - secondsStart
+    }
+    
+    @IBOutlet var endButton: UIButton!
+    @IBOutlet var startButton: UIButton!
+    @IBOutlet var elapsedTimeLabel: UILabel!
+    @IBOutlet var readingSpeedLabel: UILabel!
+    @IBOutlet var textView: UILabel!
+    
+    @IBAction func startMeasuringTime(_ sender: Any) {
+        start = Date()
+        startButton.isEnabled = false
+        endButton.isEnabled = true
+    }
+    
+    @IBAction func stopMeasuringTime(_ sender: UIButton) {
+        end = Date()
+        endButton.isEnabled = false
+        startButton.isEnabled = true
+        elapsedTimeLabel.text = String(elapsedTime) + " seconds"
+        readingSpeedLabel.text = String(calculateReadingSpeed(seconds: elapsedTime)) + " wpm"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        setupNavBar()
-        // Do any additional setup after loading the view.
+        endButton.isEnabled = false
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func calculateReadingSpeed(seconds: Int) -> Int {
+        let minutes = Double(seconds)/60
+        
+        let numberOfWords = textView.text?.components(separatedBy: .whitespacesAndNewlines).count
+        
+        return Int(Double(numberOfWords!)/Double(minutes))
     }
-    */
+    
 
 }

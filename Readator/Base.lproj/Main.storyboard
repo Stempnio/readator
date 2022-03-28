@@ -166,9 +166,12 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="56" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Start"/>
+                                                <connections>
+                                                    <action selector="startMeasuringTime:" destination="Xse-GF-V45" eventType="touchUpInside" id="XSz-df-dww"/>
+                                                </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSg-IE-V8Y" userLabel="ElapsedTime">
-                                                <rect key="frame" x="174" y="0.0" width="7.5" height="31"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSg-IE-V8Y" userLabel="ElapsedTime">
+                                                <rect key="frame" x="139.5" y="0.0" width="77" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -177,32 +180,58 @@
                                                 <rect key="frame" x="299.5" y="0.0" width="54.5" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Stop"/>
+                                                <connections>
+                                                    <action selector="stopMeasuringTime:" destination="Xse-GF-V45" eventType="touchUpInside" id="KiT-tl-72X"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZh-KF-egy">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZh-KF-egy" userLabel="textView">
                                         <rect key="frame" x="0.0" y="39" width="354" height="325"/>
-                                        <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit et felis egestas fringilla a at mauris. Nunc sodales dui quis convallis dictum. Aenean non mi sem. Sed scelerisque lacus nisi, id placerat tortor varius a. Phasellus convallis turpis ut massa efficitur iaculis. Aenean vel est in nisi feugiat fermentum. In hac habitasse platea dictumst. Praesent consectetur quam a orci condimentum, vitae mollis dui porta. Etiam rutrum, nunc a congue blandit, nulla diam faucibus sem, nec ullamcorper massa velit et velit. Pellentesque posuere finibus justo, ac feugiat risus egestas eget. Duis bibendum aliquam dolor, at posuere ex accumsan in. Nullam ultricies sagittis urna in semper.</mutableString>
+                                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget elit et felis egestas fringilla a at mauris. Nunc sodales dui quis convallis dictum. Aenean non mi sem. Sed scelerisque lacus nisi, id placerat tortor varius a. Phasellus convallis turpis ut massa efficitur iaculis. Aenean vel est in nisi feugiat fermentum. In hac habitasse platea dictumst. Praesent consectetur quam a orci condimentum, vitae mollis dui porta. Etiam rutrum, nunc a congue blandit, nulla diam faucibus sem, nec ullamcorper massa velit et velit. Pellentesque posuere finibus justo, ac feugiat risus egestas eget. Duis bibendum aliquam dolor, at posuere ex accumsan in. Nullam ultricies sagittis urna in semper.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your reading speed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ce7-OI-Hp8" userLabel="readingSpeedHeaderLabel">
+                                <rect key="frame" x="128.5" y="547" width="157.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKv-LW-O4X" userLabel="readingSpeedLabel">
+                                <rect key="frame" x="183.5" y="617.5" width="47" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kDq-oW-MAu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="OKv-LW-O4X" firstAttribute="centerX" secondItem="pW6-JO-j2M" secondAttribute="centerX" id="0YU-Ns-PGe"/>
+                            <constraint firstItem="Ce7-OI-Hp8" firstAttribute="centerX" secondItem="pW6-JO-j2M" secondAttribute="centerX" id="A2l-by-IOc"/>
                             <constraint firstItem="1ve-qG-st5" firstAttribute="leading" secondItem="kDq-oW-MAu" secondAttribute="leading" constant="30" id="LbF-DV-JzJ"/>
+                            <constraint firstItem="Ce7-OI-Hp8" firstAttribute="top" secondItem="1ve-qG-st5" secondAttribute="bottom" constant="75" id="PPW-zN-v65"/>
                             <constraint firstItem="1ve-qG-st5" firstAttribute="top" secondItem="kDq-oW-MAu" secondAttribute="top" constant="20" id="PiR-Z3-y8c"/>
                             <constraint firstItem="kDq-oW-MAu" firstAttribute="trailing" secondItem="1ve-qG-st5" secondAttribute="trailing" constant="30" id="wVz-L8-MQA"/>
+                            <constraint firstItem="OKv-LW-O4X" firstAttribute="top" secondItem="Ce7-OI-Hp8" secondAttribute="bottom" constant="50" id="wy2-Zg-5SY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Test your reading speed" id="69u-IL-bVy"/>
+                    <connections>
+                        <outlet property="elapsedTimeLabel" destination="LSg-IE-V8Y" id="o6R-SZ-6UM"/>
+                        <outlet property="endButton" destination="zZl-we-4Gz" id="P4W-Hb-hcc"/>
+                        <outlet property="readingSpeedLabel" destination="OKv-LW-O4X" id="q6G-kT-olJ"/>
+                        <outlet property="startButton" destination="jEs-Tf-7yi" id="JTj-9X-5ki"/>
+                        <outlet property="textView" destination="DZh-KF-egy" id="55F-h7-bhS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJ9-0U-FLH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="732" y="1203"/>
+            <point key="canvasLocation" x="730.43478260869574" y="1202.6785714285713"/>
         </scene>
         <!--Latest scores-->
         <scene sceneID="qSM-09-5P2">
